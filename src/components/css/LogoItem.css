@@ -1,0 +1,48 @@
+.LogoItem {
+  background-color: rgb(236, 236, 236);
+  padding: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+
+  width: 200px;
+  height: 90px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.LogoItem .logo_img {
+  width: 75%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.LogoItem .logo_name {
+  font-size: 10px;
+}
+
+
+.LogoItem_on_1{
+  color: white;
+  background-color: rgb(29, 99, 200);
+}
+.LogoItem_on_2{
+  color: white;
+  background-color: rgb(157, 215, 114);
+}
+.LogoItem_on_3{
+  color: white;
+  background-color: rgb(253, 206, 23);
+}
+.LogoItem_on_4{
+  color: white;
+  background-color: rgb(253, 132, 70);
+}
+.LogoItem_on_5{
+  color: white;
+  background-color: rgb(253, 86, 95);
+}

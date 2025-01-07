@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import { useReducer, useRef, createContext, useEffect, useState } from 'react';
 import Home from './pages/Home';
 import New from './pages/New';
-import Diary from './pages/Diary';
+import Post from './pages/Post';
 import Notfound from './pages/Notfound';
 import Edit from './pages/Edit';
 
@@ -26,7 +26,7 @@ function reducer(state, action) {
     default:
       return state;
   }
-  localStorage.setItem("diary", JSON.stringify(nextState))
+  localStorage.setItem("post", JSON.stringify(nextState))
   return nextState
 }
 
@@ -39,7 +39,7 @@ function App() {
   const idRef = useRef(0);
 
   useEffect(() => {
-    const storedData = localStorage.getItem("diary");
+    const storedData = localStorage.getItem("post");
     if (!storedData) {
       setIsLoading(false);
       return;
@@ -68,25 +68,25 @@ function App() {
 
   localStorage.removeItem("test")
 
-  const onCreate = (createdDate, emotionId, content) => {
+  const onCreate = (createdDate, logoId, content) => {
     dispatch({
       type: "CREATE",
       data: {
         id: idRef.current++,
         createdDate,
-        emotionId,
+        logoId,
         content
       }
     })
   }
-  const onUpdate = (id, createdDate, emotionId, content) => {
+  const onUpdate = (id, createdDate, logoId, content) => {
     dispatch(
       {
         type: "UPDATE",
         data: {
           id,
           createdDate,
-          emotionId,
+          logoId,
           content
         }
       }
@@ -112,7 +112,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/new" element={<New />} />
-            <Route path="/diary/:id" element={<Diary />} />
+            <Route path="/post/:id" element={<Post />} />
             <Route path="/edit/:id" element={<Edit />} />
             <Route path="*" element={<Notfound />} />
           </Routes>

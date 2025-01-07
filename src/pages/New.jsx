@@ -11,12 +11,12 @@ const New = () => {
   const { onCreate } = useContext(DiaryDispatchContext)
 
   const onSubmit = (input) => {
-    onCreate(input.createdDate.getTime(), input.emotionId, input.content);
+    onCreate(input.createdDate.getTime(), input.logoId, input.content);
     nav("/", { replace: true })
   }
   return (
     <>
-      <Header leftChild={<Button text={"< 뒤로가기"} onClick={() => nav(-1)} />} title={"새로운 일기 추가"} />
+      <Header leftChild={<Button text={"< 뒤로가기"} onClick={() => nav(-1)} />} title={"새로운 포스트"} />
       <Editor onSubmit={onSubmit} />
     </>
   )

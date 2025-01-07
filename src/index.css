@@ -1,6 +1,10 @@
 @font-face {
-  font-family: "SpoqaHanSansNeoMedium";
-  src: url(/SpoqaHanSansNeo-Medium.ttf);
+  font-family: "Moneygraphy-Rounded";
+  src: url(/Moneygraphy-Rounded.ttf);
+}
+@font-face {
+  font-family: "Moneygraphy-Pixel";
+  src: url(/Moneygraphy-Pixel.ttf);
 }
 
 html, body {
@@ -21,5 +25,5 @@ html, body {
 }
 
 body * {
-  font-family: "SpoqaHanSansNeoMedium";
+  font-family: "Moneygraphy-Rounded";
 }

@@ -1,7 +1,7 @@
-export const emotionList = [
-  { emotionId: 1, emotionName: "완전 좋음" },
-  { emotionId: 2, emotionName: "좋음" },
-  { emotionId: 3, emotionName: "보통" },
-  { emotionId: 4, emotionName: "나쁨" },
-  { emotionId: 5, emotionName: "완전 나쁨" }
+export const LogoList = [
+  { logoId: 1, logoName: "React" },
+  { logoId: 2, logoName: "SpringBoot" },
+  { logoId: 3, logoName: "AWS" },
+  { logoId: 4, logoName: "Docker" },
+  { logoId: 5, logoName: "Programming Language" }
 ]

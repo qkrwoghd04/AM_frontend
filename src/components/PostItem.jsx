@@ -1,19 +1,20 @@
-import { getEmotionImage } from "../utils/getEmotionImage";
-import Button from "./css/Button";
+import { getLogoImage } from "../utils/getLogoImage";
+import Button from "./Button";
 import { useNavigate } from "react-router-dom";
+import "./css/PostItem.css";
 
-import "./DiaryItem.css";
-const DiaryItem = ({ id, createdDate, emotionId, content }) => {
+const DiaryItem = ({ id, createdDate, logoId, content }) => {
+
   const nav = useNavigate();
   return (
-    <div className="DiaryItem">
+    <div className="PostItem">
       <div
-        onClick={() => nav(`/diary/${id}`)}
-        className={`img_section img_section_${emotionId}`}>
-        <img src={getEmotionImage(emotionId)} />
+        onClick={() => nav(`/post/${id}`)}
+        className={`img_section img_section_${logoId}`}>
+        <img src={getLogoImage(logoId)} />
       </div>
       <div
-        onClick={() => nav(`/diary/${id}`)}
+        onClick={() => nav(`/post/${id}`)}
         className="info_section">
         <div className="created_date">
           {new Date(createdDate).toLocaleDateString()}

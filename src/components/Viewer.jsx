@@ -1,23 +1,23 @@
-import { getEmotionImage } from '../utils/getEmotionImage'
-import { emotionList } from '../utils/constants'
+import { getLogoImage } from '../utils/getLogoImage'
+import { LogoList } from '../utils/constants'
 import "./css/Viewer.css"
 
-const Viewer = ({ emotionId, content }) => {
+const Viewer = ({ logoId, content }) => {
 
-  const emotionItem = emotionList.find((item) => String(item.emotionId) === String(emotionId))
+  const logoItem = LogoList.find((item) => String(item.logoId) === String(logoId))
   return (
     <div className='Viewer'>
       <section className='img_section'>
-        <h4>오늘의 감정</h4>
-        <div className={`emotion_img_wrapper emotion_img_wrapper_${emotionId}`}>
-          <img src={getEmotionImage(emotionId)} />
+        <h4>주제</h4>
+        <div className={`logo_img_wrapper logo_img_wrapper_${logoId}`}>
+          <img src={getLogoImage(logoId)} />
           <div>
-            {emotionItem.emotionName}
+            {logoItem.logoName}
           </div>
         </div>
       </section>
       <section className='content_section'>
-        <h4>오늘의 일기</h4>
+        <h4>오늘의 배움</h4>
         <div className='content_wrapper'>
           <p>{content}</p>
         </div>

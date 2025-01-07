@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import './css/Editor.css'
-import EmotionItem from './EmotionItem'
+import LogoItem from './LogoItem'
 import Button from './Button'
 import { useNavigate } from 'react-router-dom'
-import { emotionList } from '../utils/constants'
+import { LogoList } from '../utils/constants'
 import { getStringedDate } from '../utils/getStringedDate'
 
 const Editor = ({ initData, onSubmit }) => {
@@ -45,18 +45,18 @@ const Editor = ({ initData, onSubmit }) => {
         <h4>오늘의 날짜</h4>
         <input name="createdDate" onChange={onChangeInput} value={getStringedDate(input.createdDate)} type="date"></input>
       </section>
-      <section className='emotion_section'>
-        <h4>오늘의 감정</h4>
-        <div className='emotion_list_wrapper'>
-          {emotionList.map((item, index) => {
+      <section className='logo_section'>
+        <h4>주제</h4>
+        <div className='logo_list_wrapper'>
+          {LogoList.map((item, index) => {
             return (
-              <EmotionItem
+              <LogoItem
                 key={index} {...item}
-                isSelected={item.emotionId === input.emotionId}
+                isSelected={item.logoId === input.logoId}
                 onClick={() => onChangeInput({
                   target: {
-                    name: "emotionId",
-                    value: item.emotionId
+                    name: "logoId",
+                    value: item.logoId
                   }
                 })} />
             )
@@ -64,8 +64,8 @@ const Editor = ({ initData, onSubmit }) => {
         </div>
       </section>
       <section className='content_section'>
-        <h4>오늘의 일기</h4>
-        <textarea name="content" value={input.content} onChange={onChangeInput} placeholder='오늘은 어땠나요?' />
+        <h4>오늘의 배움</h4>
+        <textarea name="content" value={input.content} onChange={onChangeInput} placeholder='오늘은 무엇을 배우셨나요?' />
       </section>
       <section className='button_section'>
         <Button text={"취소하기"} onClick={() => nav(-1)} />

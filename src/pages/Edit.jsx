@@ -17,7 +17,7 @@ const Edit = () => {
 
   const onClickDelete = () => {
     if (
-      window.confirm("일기를 삭제하시겠습니까?")
+      window.confirm("포스팅을 삭제하시겠습니까?")
     ) {
       onDelete(param.id);
       nav("/", replace(true));
@@ -25,7 +25,7 @@ const Edit = () => {
   }
 
   const onSubmit = (input) => {
-    onUpdate(param.id, input.createdDate.getTime(), input.emotionId, input.content);
+    onUpdate(param.id, input.createdDate.getTime(), input.logoId, input.content);
     nav("/", replace(true))
   }
 
@@ -33,7 +33,7 @@ const Edit = () => {
     <div>
       <Header
         leftChild={<Button text={"뒤로가기"} onClick={() => nav(-1)} />}
-        title="일기 수정하기"
+        title="포스팅 수정하기"
         rightChild={<Button text={"삭제하기"} type={"NEGATIVE"} onClick={onClickDelete} />}
       />
       <Editor initData={curDiaryItem} onSubmit={onSubmit} />

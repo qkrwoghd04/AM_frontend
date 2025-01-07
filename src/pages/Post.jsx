@@ -5,7 +5,7 @@ import Viewer from '../components/Viewer'
 import useDiary from '../hooks/useDiary';
 import { getStringedDate } from '../utils/getStringedDate';
 
-const Diary = () => {
+const Post = () => {
   const param = useParams();
   const nav = useNavigate();
 
@@ -15,7 +15,7 @@ const Diary = () => {
   if (!curDiaryItem) {
     return <div>데이터 로딩중...!</div>
   }
-  const { createdDate, emotionId, content } = curDiaryItem;
+  const { createdDate, logoId, content } = curDiaryItem;
   const title = getStringedDate(new Date(createdDate))
 
 
@@ -25,9 +25,9 @@ const Diary = () => {
         leftChild={<Button text={"< 뒤로가기"} onClick={() => nav(-1)} />}
         rightChild={<Button onClick={() => nav(`/edit/${param.id}`)} text={"수정하기"} />}
       />
-      <Viewer emotionId={emotionId} content={content} />
+      <Viewer logoId={logoId} content={content} />
     </div>
   )
 }
 
-export default Diary
+export default Post

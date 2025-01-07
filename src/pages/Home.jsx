@@ -3,7 +3,7 @@ import Button from '../components/Button';
 import { useState, useContext } from 'react'
 import { DiaryStateContext } from '../App';
 
-import DiaryList from '../components/DiaryList'
+import PostList from '../components/PostList'
 
 const getMonthlyData = (pivotDate, data) => {
   const beginTime = new Date(pivotDate.getFullYear(), pivotDate.getMonth(), 1, 0, 0, 0).getTime()
@@ -31,7 +31,7 @@ const Home = () => {
         leftChild={<Button text={"<"} onClick={onDecreaseMouth} />}
         rightChild={<Button text={">"} onClick={onIncreaseMouth} />}
       />
-      <DiaryList data={monthlyData} />
+      <PostList data={monthlyData} />
     </div>
   )
 }
