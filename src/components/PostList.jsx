@@ -1,6 +1,6 @@
 import Button from "./Button";
 import { useNavigate } from 'react-router-dom'
-import DiaryItem from "./PostItem";
+import PostItem from "./PostItem";
 import "./css/PostList.css";
 import { useState } from 'react'
 
@@ -37,7 +37,7 @@ const PostList = ({ data }) => {
       <div className="list_wrapper">
         {sortedDate.map((item) => {
           return (
-            <DiaryItem key={item.id} {...item} />
+            <PostItem key={item.id} {...item} />
           )
         })}
       </div>

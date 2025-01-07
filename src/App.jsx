@@ -30,8 +30,8 @@ function reducer(state, action) {
   return nextState
 }
 
-export const DiaryStateContext = createContext();
-export const DiaryDispatchContext = createContext();
+export const PostStateContext = createContext();
+export const PostDispatchContext = createContext();
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -105,8 +105,8 @@ function App() {
 
   return (
     <>
-      <DiaryStateContext.Provider value={data}>
-        <DiaryDispatchContext.Provider value={{
+      <PostStateContext.Provider value={data}>
+        <PostDispatchContext.Provider value={{
           onCreate, onDelete, onUpdate
         }}>
           <Routes>
@@ -116,8 +116,8 @@ function App() {
             <Route path="/edit/:id" element={<Edit />} />
             <Route path="*" element={<Notfound />} />
           </Routes>
-        </DiaryDispatchContext.Provider>
-      </DiaryStateContext.Provider>
+        </PostDispatchContext.Provider>
+      </PostStateContext.Provider>
     </>
   )
 }

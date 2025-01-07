@@ -1,7 +1,7 @@
 import Header from '../components/Header'
 import Button from '../components/Button';
 import { useState, useContext } from 'react'
-import { DiaryStateContext } from '../App';
+import { PostStateContext } from '../App';
 
 import PostList from '../components/PostList'
 
@@ -13,7 +13,7 @@ const getMonthlyData = (pivotDate, data) => {
 }
 const Home = () => {
   const [pivotDate, setPivatDate] = useState(new Date());
-  const data = useContext(DiaryStateContext);
+  const data = useContext(PostStateContext);
 
   const monthlyData = getMonthlyData(pivotDate, data);
 
@@ -28,8 +28,8 @@ const Home = () => {
     <div>
       <Header
         title={`${pivotDate.getFullYear()}년 ${pivotDate.getMonth() + 1}월`}
-        leftChild={<Button text={"<"} onClick={onDecreaseMouth} />}
-        rightChild={<Button text={">"} onClick={onIncreaseMouth} />}
+        leftChild={<Button text={"◀"} onClick={onDecreaseMouth} />}
+        rightChild={<Button text={"▶"} onClick={onIncreaseMouth} />}
       />
       <PostList data={monthlyData} />
     </div>

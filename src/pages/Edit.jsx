@@ -4,15 +4,15 @@ import Header from '../components/Header'
 import Editor from '../components/Editor'
 import Button from '../components/Button'
 import { useContext, useState } from 'react'
-import { DiaryDispatchContext } from '../App'
-import useDiary from '../hooks/useDiary'
+import { PostDispatchContext } from '../App'
+import usePost from '../hooks/usePost'
 
 const Edit = () => {
   const param = useParams();
   const nav = useNavigate();
-  const { onDelete, onUpdate } = useContext(DiaryDispatchContext);
+  const { onDelete, onUpdate } = useContext(PostDispatchContext);
 
-  const curDiaryItem = useDiary(param.id)
+  const curDiaryItem = usePost(param.id)
 
 
   const onClickDelete = () => {

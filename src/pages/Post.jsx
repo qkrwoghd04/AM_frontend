@@ -2,7 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import Header from '../components/Header';
 import Button from '../components/Button';
 import Viewer from '../components/Viewer'
-import useDiary from '../hooks/useDiary';
+import usePost from '../hooks/usePost';
 import { getStringedDate } from '../utils/getStringedDate';
 
 const Post = () => {
@@ -10,12 +10,12 @@ const Post = () => {
   const nav = useNavigate();
 
 
-  const curDiaryItem = useDiary(param.id)
+  const curPostItem = usePost(param.id)
 
-  if (!curDiaryItem) {
+  if (!curPostItem) {
     return <div>데이터 로딩중...!</div>
   }
-  const { createdDate, logoId, content } = curDiaryItem;
+  const { createdDate, logoId, content } = curPostItem;
   const title = getStringedDate(new Date(createdDate))
 
 
