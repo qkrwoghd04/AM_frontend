@@ -1,18 +1,16 @@
 .Editor > section {
-  margin: 40px 0px;
-}
-.Editor > section > h4 {
-  font-size: 22px;
-  font-weight: bold;
+  margin: 20px 0px;
 }
 
 .Editor > section > input, textarea {
   background-color:  rgb(236, 236, 236);
+  margin: 0;
   border: none;
   border-radius: 5px;
-  font-size: 20px;
-  padding: 10px 20px
+  font-size: 15px;
+  padding: 10px;
 }
+
 .Editor > section > textarea {
   padding: 20px;
   width: 100%;
@@ -30,4 +28,5 @@
 .Editor .button_section {
   display: flex;
   justify-content: space-between;
+  gap: 10px
 }

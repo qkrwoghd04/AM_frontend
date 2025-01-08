@@ -1,0 +1,73 @@
+.Selector {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.Selector .SelectorBox {
+  padding: 8px 16px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 10px
+}
+
+.Selector img {
+  width: 100%;
+}
+
+
+/* 버튼 클릭 시 */
+
+.Selector .SelectorBox_1 {
+  color: black;
+  background-color: rgb(216, 216, 216);
+}
+
+.Selector .SelectorBox_1:hover {
+  color: white;
+  background-color: rgb(100, 201, 100);
+}
+
+.Selector .SelectorBox_2 {
+  color: black;
+  background-color: rgb(216, 216, 216);
+}
+
+.Selector .SelectorBox_2:hover {
+  color: white;
+  background-color: rgb(157, 215, 114);
+}
+
+.Selector .SelectorBox_3 {
+  color: black;
+  background-color: rgb(216, 216, 216);
+}
+
+.Selector .SelectorBox_3:hover {
+  color: white;
+  background-color: rgb(253, 206, 23);
+}
+
+.Selector .SelectorBox_4 {
+  color: black;
+  background-color: rgb(216, 216, 216);
+}
+
+.Selector .SelectorBox_4:hover {
+  color: white;
+  background-color: rgb(253, 132, 70);
+}
+
+.Selector .SelectorBox_5 {
+  color: black;
+  background-color: rgb(216, 216, 216);
+}
+
+.Selector .SelectorBox_5:hover {
+  color: white;
+  background-color: rgb(253, 86, 95);
+}

@@ -7,23 +7,43 @@
   src: url(/Moneygraphy-Pixel.ttf);
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html, body {
-  margin: 0px;
+  margin: 0;
   background-color: rgb(246, 246, 246);
   width: 100%;
   display: flex;
-}
-
-#root {
-  background-color: white;
-  max-width: 700px;
-  width: 100%;
-  margin: 0 auto;
   min-height: 100vh;
-  height: 100%;
-  padding: 0px 20px;
 }
 
 body * {
   font-family: "Moneygraphy-Rounded";
+}
+
+h4 {
+  font-size: large;
+  font-weight: bold;
+  margin: 10px 0px
+}
+
+#root {
+  background-color: white;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  height: 100%;
+  padding: 0 16px;
+}
+
+/* 태블릿 이상 화면에서의 스타일 */
+@media screen and (min-width: 768px) {
+  #root {
+    max-width: 800px;
+    padding: 0 20px;
+  }
 }

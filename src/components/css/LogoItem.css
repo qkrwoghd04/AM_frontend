@@ -1,31 +1,29 @@
 .LogoItem {
   background-color: rgb(236, 236, 236);
-  padding: 20px;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
-
-  width: 200px;
-  height: 90px;
+  
+  /* 정사각형 모양 유지 */
+  aspect-ratio: 1;
+  width: 100%;
   
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  padding: 8px;
 }
 
 .LogoItem .logo_img {
   width: 75%;
   height: auto;
   object-fit: contain;
-  margin-bottom: 10px;
-}
-
-.LogoItem .logo_name {
-  font-size: 10px;
+  margin-bottom: 8px;
 }
 
 
+/* 선택한 Logo */
 .LogoItem_on_1{
   color: white;
   background-color: rgb(29, 99, 200);

@@ -33,6 +33,7 @@ const PostList = ({ data }) => {
           <option value={"oldest"}>오래된 순</option>
         </select>
         <Button text={"새 지식 쓰기"} type={"POSITIVE"} onClick={() => nav("/new")} />
+        <Button text={"영상 글쓰기"} type={"POSITIVE"} onClick={() => nav("/video")} />
       </div>
       <div className="list_wrapper">
         {sortedDate.map((item) => {

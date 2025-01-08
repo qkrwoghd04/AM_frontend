@@ -1,11 +1,12 @@
 import './App.css'
-import { Routes, Route } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { useReducer, useRef, createContext, useEffect, useState } from 'react';
 import Home from './pages/Home';
 import New from './pages/New';
 import Post from './pages/Post';
 import Notfound from './pages/Notfound';
 import Edit from './pages/Edit';
+import Video from './pages/Video'
 
 function reducer(state, action) {
   let nextState;
@@ -30,6 +31,34 @@ function reducer(state, action) {
   return nextState
 }
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/new",
+    element: <New />,
+  },
+  {
+    path: "/post/:id",
+    element: <Post />,
+  },
+  {
+    path: "/edit/:id",
+    element: <Edit />,
+  },
+  {
+    path: "/video",
+    element: <Video />,
+  },
+  {
+    path: "*",
+    element: <Notfound />,
+  },
+]);
+
+// 컨텍스트
 export const PostStateContext = createContext();
 export const PostDispatchContext = createContext();
 
@@ -109,13 +138,7 @@ function App() {
         <PostDispatchContext.Provider value={{
           onCreate, onDelete, onUpdate
         }}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/new" element={<New />} />
-            <Route path="/post/:id" element={<Post />} />
-            <Route path="/edit/:id" element={<Edit />} />
-            <Route path="*" element={<Notfound />} />
-          </Routes>
+          <RouterProvider router={router} />
         </PostDispatchContext.Provider>
       </PostStateContext.Provider>
     </>

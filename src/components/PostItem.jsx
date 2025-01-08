@@ -1,5 +1,4 @@
 import { getLogoImage } from "../utils/getLogoImage";
-import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import "./css/PostItem.css";
 
@@ -21,9 +20,9 @@ const DiaryItem = ({ id, createdDate, logoId, content }) => {
         </div>
         <div className="content">{content}</div>
       </div>
-      <div className="button_section">
+      {/* <div className="button_section">
         <Button text={"수정하기"} onClick={() => nav(`/edit/${id}`)} />
-      </div>
+      </div> */}
     </div>
   )
 }

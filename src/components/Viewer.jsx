@@ -3,7 +3,6 @@ import { LogoList } from '../utils/constants'
 import "./css/Viewer.css"
 
 const Viewer = ({ logoId, content }) => {
-
   const logoItem = LogoList.find((item) => String(item.logoId) === String(logoId))
   return (
     <div className='Viewer'>
@@ -19,7 +18,7 @@ const Viewer = ({ logoId, content }) => {
       <section className='content_section'>
         <h4>오늘의 배움</h4>
         <div className='content_wrapper'>
-          <p>{content}</p>
+          <h5>{content}</h5>
         </div>
       </section>
     </div>

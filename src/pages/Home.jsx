@@ -25,14 +25,14 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <>
       <Header
         title={`${pivotDate.getFullYear()}년 ${pivotDate.getMonth() + 1}월`}
         leftChild={<Button text={"◀"} onClick={onDecreaseMouth} />}
         rightChild={<Button text={"▶"} onClick={onIncreaseMouth} />}
       />
       <PostList data={monthlyData} />
-    </div>
+    </>
   )
 }
 

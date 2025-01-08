@@ -62,11 +62,13 @@ const Editor = ({ initData, onSubmit }) => {
             )
           })}
         </div>
+        {/* 컨텐트 */}
       </section>
       <section className='content_section'>
         <h4>오늘의 배움</h4>
         <textarea name="content" value={input.content} onChange={onChangeInput} placeholder='오늘은 무엇을 배우셨나요?' />
       </section>
+
       <section className='button_section'>
         <Button text={"취소하기"} onClick={() => nav(-1)} />
         <Button text={"작성완료"} type={"POSITIVE"} onClick={onClickSubmitButton} />

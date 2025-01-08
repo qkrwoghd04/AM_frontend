@@ -3,7 +3,7 @@ import { replace, useNavigate, useParams } from 'react-router-dom'
 import Header from '../components/Header'
 import Editor from '../components/Editor'
 import Button from '../components/Button'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { PostDispatchContext } from '../App'
 import usePost from '../hooks/usePost'
 

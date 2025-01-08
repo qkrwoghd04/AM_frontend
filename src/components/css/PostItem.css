@@ -1,4 +1,5 @@
 .PostItem{
+  width: 100%;
   display: flex;
   gap: 15px;
   justify-content: space-between;
@@ -7,8 +8,8 @@
 }
 
 .PostItem .img_section {
-  min-width: 120px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   display: flex;
   justify-content: center;
   cursor: pointer;
@@ -18,29 +19,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0; 
 }
+
 .PostItem .img_section > img {
   width: 50%;
-  height: 65px;
 }
 
 .PostItem .info_section {
-  flex : 1; 
-}
-@media screen and (max-width: 650px) {
-  .PostItem .info_section {
-    flex: 1;
-    max-width: 300px;
-  }
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .PostItem .info_section .created_date {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 15px;
 }
 
 .PostItem .info_section .content {
-  font-size: 18px;
+  font-size: 15px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
