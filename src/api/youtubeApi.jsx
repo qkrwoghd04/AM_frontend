@@ -1,6 +1,8 @@
 import axios from 'axios'
+const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
 
+console.log(API_KEY)
 export const youtubeApi = axios.create({
   baseURL: 'https://youtube.googleapis.com/youtube/v3',
-  params: { key: "AIzaSyA-0N9viOOnwa28lEeQzP-qb-h1z0aLLPA" },
+  params: { key: API_KEY },
 });
