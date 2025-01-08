@@ -1,8 +1,29 @@
-import { youtubeApi } from '../api/youtubeApi';
+// import { youtubeApi } from '../api/youtubeApi';
 import { useEffect, useState } from 'react';
 import './css/VideoList.css';
 import SearchBar from './SearchBar';
 import Selector from './Selector'
+
+const list = [
+  {
+    id: { videoId: "LclObYwGj90" },
+    snippet: {
+      title: "첫 번째 개발자 영상",
+    }
+  },
+  {
+    id: { videoId: "omYLzgtBaKU" },
+    snippet: {
+      title: "두 번째 개발자 영상",
+    }
+  },
+  {
+    id: { videoId: "FvRtoViujGg" },
+    snippet: {
+      title: "세 번째 개발자 영상",
+    }
+  }
+];
 
 const VideoList = () => {
   const [videoList, setVideoList] = useState([]);
@@ -10,25 +31,26 @@ const VideoList = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
-    getYoutubeVideos();
+    setVideoList(list)
+    // getYoutubeVideos();
   }, [query]);
 
-  const getYoutubeVideos = async () => {
-    try {
-      const res = await youtubeApi.get('search', {
-        params: {
-          part: 'snippet',
-          maxResults: 9,
-          q: query || '좋은 개발자란',
-          type: 'video',
-        },
-      });
-      console.log(res.data.items);
-      setVideoList(res.data.items);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const getYoutubeVideos = async () => {
+  //   try {
+  //     const res = await youtubeApi.get('search', {
+  //       params: {
+  //         part: 'snippet',
+  //         maxResults: 9,
+  //         q: query || '좋은 개발자란',
+  //         type: 'video',
+  //       },
+  //     });
+  //     console.log(res.data.items);
+  //     setVideoList(res.data.items);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   const handleVideoClick = (videoId) => {
     setSelectedVideo(videoId);
