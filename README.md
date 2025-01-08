@@ -34,6 +34,7 @@ LG CNS AM CAMP에서 24/12/23 ~ 25/1/8일까지 React에 대해서 배웠습니�
 - refactor: 코드 리팩토링
 - docs: 문서 추가 및 수정
 - chore: 기타 작업
+- test: 테스트 작업
 
 ### 예시
 ```bash
