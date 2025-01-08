@@ -7,6 +7,7 @@ import Selector from './Selector'
 const VideoList = () => {
   const [videoList, setVideoList] = useState([]);
   const [query, setQuery] = useState("");
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
     getYoutubeVideos();
@@ -29,16 +30,47 @@ const VideoList = () => {
     }
   };
 
+  const handleVideoClick = (videoId) => {
+    setSelectedVideo(videoId);
+  };
+
   return (
     <>
       <SearchBar setQuery={setQuery} />
       <Selector setQuery={setQuery} />
+      {selectedVideo && (
+        <div className="FullscreenVideo">
+          <button
+            className="CloseButton"
+            onClick={() => setSelectedVideo(null)}
+          >
+            ✕
+          </button>
+          <div className="VideoOverlay">
+            <iframe
+              id="player"
+              title="Selected Video"
+              type="text/html"
+              width="100%"
+              height="100%"
+              src={`https://www.youtube-nocookie.com/embed/${selectedVideo}?autoplay=1&fs=1`}
+              allowFullScreen
+              style={{ position: 'absolute', top: 0, left: 0 }}
+            ></iframe>
+          </div>
+        </div>
+      )}
       <div className='VideoTitle'>
         <h4>LG CNS AM 캠프 과정을 위한 {query} 영상</h4>
       </div>
       <div className='Video'>
         {videoList.map((v) => (
-          <div key={v.id.videoId} className='VideoItem'>
+          <div
+            key={v.id.videoId}
+            className='VideoItem'
+            onClick={() => handleVideoClick(v.id.videoId)}
+            style={{ cursor: 'pointer' }}
+          >
             <h4>{v.snippet.title}</h4>
             <iframe
               id='player'
