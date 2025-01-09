@@ -25,7 +25,7 @@ const Edit = () => {
   }
 
   const onSubmit = (input) => {
-    onUpdate(param.id, input.createdDate.getTime(), input.logoId, input.content);
+    onUpdate(param.id, input.createdDate.getTime(), input.logoId, input.videoId, input.content);
     nav("/", replace(true))
   }
 

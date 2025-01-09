@@ -10,7 +10,9 @@ const Editor = ({ initData, onSubmit, videoId = "" }) => {
   const [input, setInput] = useState({
     createdDate: new Date(),
     content: "",
+    videoId: "",
   });
+
   const nav = useNavigate();
 
   const onChangeInput = e => {
@@ -27,6 +29,9 @@ const Editor = ({ initData, onSubmit, videoId = "" }) => {
     })
   }
   const onClickSubmitButton = () => {
+    if (videoId !== "") {
+      onSubmit({ ...input, videoId: videoId })
+    }
     onSubmit(input)
   }
 

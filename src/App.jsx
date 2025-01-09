@@ -97,18 +97,19 @@ function App() {
 
   localStorage.removeItem("test")
 
-  const onCreate = (createdDate, logoId, content) => {
+  const onCreate = (createdDate, logoId, videoId, content) => {
     dispatch({
       type: "CREATE",
       data: {
         id: idRef.current++,
         createdDate,
         logoId,
+        videoId,
         content
       }
     })
   }
-  const onUpdate = (id, createdDate, logoId, content) => {
+  const onUpdate = (id, createdDate, logoId, videoId, content) => {
     dispatch(
       {
         type: "UPDATE",
@@ -116,6 +117,7 @@ function App() {
           id,
           createdDate,
           logoId,
+          videoId,
           content
         }
       }

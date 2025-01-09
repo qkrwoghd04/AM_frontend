@@ -13,7 +13,7 @@ const New = () => {
   const { onCreate } = useContext(PostDispatchContext)
 
   const onSubmit = (input) => {
-    onCreate(input.createdDate.getTime(), input.logoId, input.content);
+    onCreate(input.createdDate.getTime(), input.logoId, input.videoId, input.content);
     nav("/", { replace: true })
   }
   return (
