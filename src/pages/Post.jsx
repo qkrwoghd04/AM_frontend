@@ -15,7 +15,7 @@ const Post = () => {
   if (!curPostItem) {
     return <div>데이터 로딩중...!</div>
   }
-  const { createdDate, logoId, content } = curPostItem;
+  const { createdDate, logoId, videoId, content } = curPostItem;
   const title = getStringedDate(new Date(createdDate))
 
 
@@ -25,7 +25,7 @@ const Post = () => {
         leftChild={<Button text={"< 뒤로가기"} onClick={() => nav(-1)} />}
         rightChild={<Button onClick={() => nav(`/edit/${param.id}`)} text={"수정하기"} />}
       />
-      <Viewer logoId={logoId} content={content} />
+      <Viewer logoId={logoId} content={content} videoId={videoId} />
     </div>
   )
 }
