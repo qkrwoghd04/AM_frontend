@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import Header from "../components/Header";
 import Button from "../components/Button";
@@ -8,6 +8,8 @@ import { useContext } from "react";
 
 const New = () => {
   const nav = useNavigate()
+  const location = useLocation();
+  const { videoId } = location.state || {};
   const { onCreate } = useContext(PostDispatchContext)
 
   const onSubmit = (input) => {
@@ -17,7 +19,7 @@ const New = () => {
   return (
     <>
       <Header leftChild={<Button text={"< 뒤로가기"} onClick={() => nav(-1)} />} title={"새로운 포스트"} />
-      <Editor onSubmit={onSubmit} />
+      <Editor onSubmit={onSubmit} videoId={videoId} />
     </>
   )
 }

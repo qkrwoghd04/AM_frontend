@@ -79,7 +79,7 @@ const VideoList = () => {
               style={{ position: 'absolute', top: 0, left: 0 }}
             ></iframe>
           </div>
-          <Button text={"글쓰기"} onClick={() => nav("/new")} />
+          <Button text={"글쓰기"} onClick={() => nav("/new", { state: { videoId: selectedVideo } })} />
         </div>
       )}
       <div className='VideoTitle'>
