@@ -12,7 +12,7 @@ const Edit = () => {
   const nav = useNavigate();
   const { onDelete, onUpdate } = useContext(PostDispatchContext);
 
-  const curDiaryItem = usePost(param.id)
+  const curDiaryItem = usePost(param.id);
 
 
   const onClickDelete = () => {
@@ -29,6 +29,10 @@ const Edit = () => {
     nav("/", replace(true))
   }
 
+  if (!curDiaryItem) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
       <Header
@@ -36,7 +40,7 @@ const Edit = () => {
         title="포스팅 수정하기"
         rightChild={<Button text={"삭제하기"} type={"NEGATIVE"} onClick={onClickDelete} />}
       />
-      <Editor initData={curDiaryItem} onSubmit={onSubmit} />
+      <Editor initData={curDiaryItem} onSubmit={onSubmit} videoId={curDiaryItem.videoId} />
 
     </div>
   )
