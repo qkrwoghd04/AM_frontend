@@ -29,11 +29,9 @@ const Editor = ({ initData, onSubmit, videoId = "" }) => {
     })
   }
   const onClickSubmitButton = () => {
-    if (videoId !== "") {
-      onSubmit({ ...input, videoId: videoId })
-    }
-    onSubmit(input)
-  }
+    const updatedInput = { ...input, videoId: videoId };
+    onSubmit(updatedInput);
+  };
 
   useEffect(() => {
     if (initData) {
