@@ -23,20 +23,30 @@
   overflow: hidden;
 }
 
-.VideoItem iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
+.VideoItem .VideoItem_Title{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.VideoItem h4 {
+.VideoItem .VideoItem_Title h4 {
   margin: 10px;
   font-size: 1rem;
   font-weight: bold;
   text-align: center;
   color: #333;
   font-family: 'Arial', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+.VideoItem iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 
 
 /* VideoList.css에 추가할 스타일 */
@@ -46,34 +56,25 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 1000;
+
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .VideoOverlay {
   position: relative;
-  width: 90%;
-  height: 90%;
-  margin: 2% auto;
+  width: 100%;
+  height: 30%;
 }
 
-.CloseButton {
+.NewButton {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: transparent;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 1001;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: background-color 0.2s ease;
+  bottom: 20px;
 }
 
 .CloseButton:hover {

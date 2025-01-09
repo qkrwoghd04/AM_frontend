@@ -10,8 +10,8 @@ const keywordList = [
 ]
 
 const Selector = ({ setQuery }) => {
-  const onSearchKeyword = (keyword) => {
-    setQuery(keyword.value);
+  const onSearchKeyword = (query) => {
+    setQuery(query);
   }
 
   return (
@@ -22,7 +22,7 @@ const Selector = ({ setQuery }) => {
             <button
               className={`SelectorBox SelectorBox_${keyword.id}`}
               key={keyword.id}
-              onClick={() => onSearchKeyword(keyword)}
+              onClick={() => onSearchKeyword(keyword.value)}
             >
               <img src={getLogoImage(keyword.id)} alt={keyword.name} />
             </button>

@@ -3,12 +3,15 @@ import { useEffect, useState } from 'react';
 import './css/VideoList.css';
 import SearchBar from './SearchBar';
 import Selector from './Selector'
+import Button from './Button'
+import Header from './Header'
+import { useNavigate } from 'react-router-dom';
 
 const list = [
   {
     id: { videoId: "LclObYwGj90" },
     snippet: {
-      title: "첫 번째 개발자 영상",
+      title: "첫 번째 개발자 영상입니다 일부로 길게",
     }
   },
   {
@@ -29,6 +32,7 @@ const VideoList = () => {
   const [videoList, setVideoList] = useState([]);
   const [query, setQuery] = useState("");
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const nav = useNavigate();
 
   useEffect(() => {
     setVideoList(list)
@@ -40,7 +44,7 @@ const VideoList = () => {
   //     const res = await youtubeApi.get('search', {
   //       params: {
   //         part: 'snippet',
-  //         maxResults: 9,
+  //         maxResults: 3,
   //         q: query || '좋은 개발자란',
   //         type: 'video',
   //       },
@@ -62,12 +66,7 @@ const VideoList = () => {
       <Selector setQuery={setQuery} />
       {selectedVideo && (
         <div className="FullscreenVideo">
-          <button
-            className="CloseButton"
-            onClick={() => setSelectedVideo(null)}
-          >
-            ✕
-          </button>
+          <Header title={"영상 글쓰기"} color={"white"} leftChild={<Button text={"< 뒤로가기"} onClick={() => setSelectedVideo(null)} />} />
           <div className="VideoOverlay">
             <iframe
               id="player"
@@ -80,6 +79,7 @@ const VideoList = () => {
               style={{ position: 'absolute', top: 0, left: 0 }}
             ></iframe>
           </div>
+          <Button text={"글쓰기"} onClick={() => nav("/new")} />
         </div>
       )}
       <div className='VideoTitle'>
@@ -93,7 +93,9 @@ const VideoList = () => {
             onClick={() => handleVideoClick(v.id.videoId)}
             style={{ cursor: 'pointer' }}
           >
-            <h4>{v.snippet.title}</h4>
+            <div className='VideoItem_Title'>
+              <h4>{v.snippet.title}</h4>
+            </div>
             <iframe
               id='player'
               title={v.snippet.title}

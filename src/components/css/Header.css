@@ -2,7 +2,10 @@
   display: flex;
   align-items: center;
   padding : 20px 0px;
-  border-bottom: 1px solid rgb(226, 226, 226)
+}
+
+.Header_white {
+  color: white;
 }
 
 .Header > div {

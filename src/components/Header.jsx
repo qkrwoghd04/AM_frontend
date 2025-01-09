@@ -1,9 +1,9 @@
 import './css/Header.css';
 
-const Header = ({ title, leftChild, rightChild }) => {
+const Header = ({ title, leftChild, rightChild, color = "black" }) => {
   return (
     <header
-      className="Header"
+      className={`Header Header_${color}`}
     >
       <div className="header_left">{leftChild}</div>
       <div className="header_center">{title}</div>
