@@ -6,6 +6,7 @@ import Editor from "../components/Editor";
 import { PostDispatchContext } from "../App";
 import { useContext } from "react";
 
+// 포스트 생성
 const New = () => {
   const nav = useNavigate()
   const location = useLocation();

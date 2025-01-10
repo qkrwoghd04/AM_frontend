@@ -7,6 +7,7 @@ import { useContext } from 'react'
 import { PostDispatchContext } from '../App'
 import usePost from '../hooks/usePost'
 
+// 포스트 수정
 const Edit = () => {
   const param = useParams();
   const nav = useNavigate();

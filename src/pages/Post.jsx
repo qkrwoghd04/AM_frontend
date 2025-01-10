@@ -5,6 +5,7 @@ import Viewer from '../components/Viewer'
 import usePost from '../hooks/usePost';
 import { getStringedDate } from '../utils/getStringedDate';
 
+// 포스트 보기
 const Post = () => {
   const param = useParams();
   const nav = useNavigate();

@@ -8,6 +8,7 @@ import Notfound from './pages/Notfound';
 import Edit from './pages/Edit';
 import Video from './pages/Video'
 
+// Reducer 초기화, 생성, 수정, 삭제
 function reducer(state, action) {
   let nextState;
   switch (action.type) {
@@ -31,6 +32,7 @@ function reducer(state, action) {
   return nextState
 }
 
+// 라우터
 const router = createBrowserRouter([
   {
     path: "/",
@@ -58,7 +60,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-// 컨텍스트
+// 컨텍스트 State는 데이터, Dispatch는 onCreate, onUpdate, onDelete
 export const PostStateContext = createContext();
 export const PostDispatchContext = createContext();
 

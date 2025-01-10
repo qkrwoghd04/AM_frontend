@@ -4,6 +4,7 @@ import Button from '../components/Button'
 import VideoList from '../components/VideoList'
 import { useNavigate } from 'react-router-dom';
 
+// 영상 글쓰기
 const Video = () => {
   const nav = useNavigate();
   return (

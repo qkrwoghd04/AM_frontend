@@ -11,6 +11,8 @@ const getMonthlyData = (pivotDate, data) => {
 
   return data.filter((item) => beginTime <= item.createdDate && item.createdDate <= endTime);
 }
+
+// 메인 홈
 const Home = () => {
   const [pivotDate, setPivatDate] = useState(new Date());
   const data = useContext(PostStateContext);
