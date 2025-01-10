@@ -1,6 +1,14 @@
-# 🧩 프로젝트 목적
+# 🧩 프로젝트 목적 (24/01/06 - 24/01/09 - VERSION 1 COMPLETE)
 LG CNS AM CAMP에서 24/12/23 ~ 25/1/8일까지 React에 대해서 배웠습니다. 대부분 공부했던 내용이지만,
 더 깊이 있게 공부할 수 있는 시간이였고, 이 프로젝트는 복습할겸 React로 모바일 앱을 만드는 것이 목표입니다
+# UI
+<img width="242" alt="image" src="https://github.com/user-attachments/assets/f05b3079-20eb-4e81-9d12-1835eff58822" />
+<img width="243" alt="image" src="https://github.com/user-attachments/assets/e4933413-6b18-449f-9836-3c1d13cc2d08" />
+<img width="242" alt="image" src="https://github.com/user-attachments/assets/0f25e1b0-23b5-4242-902a-84e4410040fb" />
+<img width="240" alt="image" src="https://github.com/user-attachments/assets/0352dd99-78af-4dbf-910e-a67820917a2a" />
+<img width="242" alt="image" src="https://github.com/user-attachments/assets/e92cda3f-301a-4b17-be38-61d8a54bff01" />
+<img width="242" alt="image" src="https://github.com/user-attachments/assets/3d77f1a2-45b3-49fc-a0b1-6183617bf6a7" />
+
 
 ---
 
