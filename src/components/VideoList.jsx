@@ -43,10 +43,11 @@ const VideoList = () => {
   //   try {
   //     const res = await youtubeApi.get('search', {
   //       params: {
-  //         part: 'snippet',
-  //         maxResults: 3,
+  //         part: 'id',
+  //         maxResults: 1,
   //         q: query || '좋은 개발자란',
   //         type: 'video',
+  //         // fields: 'items/id/videoId'
   //       },
   //     });
   //     console.log(res.data.items);
