@@ -40,7 +40,7 @@ const VideoList = () => {
           params: {
             part: 'snippet',
             playlistId: playlistId,
-            maxResults: 2,
+            maxResults: 10,
             fields: 'items(snippet/title,snippet/resourceId/videoId)'
           }
         });
