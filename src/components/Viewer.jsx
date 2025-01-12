@@ -3,6 +3,8 @@ import "./css/Viewer.css"
 
 const Viewer = ({ logoId, content, videoId }) => {
 
+  const ContentList = content.split('\n');
+
   return (
     <div className='Viewer'>
       <section className='img_section'>
@@ -32,7 +34,11 @@ const Viewer = ({ logoId, content, videoId }) => {
       <section className='content_section'>
         <h4>내용</h4>
         <div className='content_wrapper'>
-          <h5>{content}</h5>
+          <ul className="content_list">
+            {ContentList.map((point, index) => (
+              <li key={index}>{point}</li>
+            ))}
+          </ul>
         </div>
       </section>
     </div>

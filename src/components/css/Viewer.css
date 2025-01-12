@@ -25,19 +25,19 @@
 }
 
 .Viewer .logo_img_wrapper_1 {
-  background-color: rgb(29, 99, 200);
+  background-color: rgb(122, 136, 255);
 }
 .Viewer .logo_img_wrapper_2 {
-  background-color: rgb(157, 215, 114);
+  background-color: rgb(2, 203, 189);
 }
 .Viewer .logo_img_wrapper_3 {
   background-color: rgb(253, 206, 23);
 }
 .Viewer .logo_img_wrapper_4 {
-  background-color: rgb(253, 132, 70);
+  background-color: rgb(251, 142, 87);
 }
 .Viewer .logo_img_wrapper_5 {
-  background-color: rgb(253, 86, 95);
+  background-color: rgb(1, 162, 224);
 }
 
 .Viewer .content_wrapper {
@@ -53,5 +53,20 @@
   padding: 20px ;
   text-align: left;
   font-weight: 500;
+  line-height: 1.5;
+}
+
+.content_section .content_wrapper .content_list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+
+  list-style-type: decimal;
+  padding: 20px 1rem 20px 2rem;
+}
+
+.content_section .content_wrapper .content_list li {
+  font-size: large;
   line-height: 1.5;
 }

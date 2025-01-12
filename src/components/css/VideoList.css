@@ -14,8 +14,7 @@
 
 .VideoItem {
   width: 100%;
-  height: 100%;
-  aspect-ratio: 16 / 9; 
+  height: 200px;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
@@ -30,12 +29,9 @@
 
 .VideoItem .VideoItem_Title h4 {
   margin: 10px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-align: center;
-  color: #333;
-  font-family: 'Arial', sans-serif;
-  white-space: nowrap;
+  font-size: small;
+  text-align: start;
+  white-space: 1;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -44,8 +40,6 @@
   width: 100%;
   border: none;
 }
-
-
 
 /* VideoList.css에 추가할 스타일 */
 .FullscreenVideo {

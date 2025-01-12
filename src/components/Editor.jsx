@@ -9,7 +9,7 @@ import { getStringedDate } from '../utils/getStringedDate'
 const Editor = ({ initData, onSubmit, videoId = "" }) => {
   const [input, setInput] = useState({
     createdDate: new Date(),
-    content: "",
+    content: ["", "", ""],
     videoId: "",
   });
 
@@ -21,15 +21,37 @@ const Editor = ({ initData, onSubmit, videoId = "" }) => {
 
     if (name === 'createdDate') {
       value = new Date(value);
+      setInput({
+        ...input,
+        [name]: value
+      });
+    } else if (name.startsWith('point')) {
+      const index = parseInt(name.slice(-1));
+      const newContent = [...input.content];
+      newContent[index] = value;
+      setInput({
+        ...input,
+        content: newContent
+      });
+    } else {
+      setInput({
+        ...input,
+        [name]: value
+      });
+    }
+  }
+
+  const onClickSubmitButton = () => {
+    if (input.content.some(point => !point.trim())) {
+      alert('모든 학습 포인트를 작성해주세요!');
+      return;
     }
 
-    setInput({
+    const updatedInput = {
       ...input,
-      [name]: value
-    })
-  }
-  const onClickSubmitButton = () => {
-    const updatedInput = { ...input, videoId: videoId };
+      videoId: videoId,
+      content: input.content.join('\n')
+    };
     onSubmit(updatedInput);
   };
 
@@ -37,10 +59,11 @@ const Editor = ({ initData, onSubmit, videoId = "" }) => {
     if (initData) {
       setInput({
         ...initData,
-        createdDate: new Date(Number(initData.createdDate))
-      })
+        createdDate: new Date(Number(initData.createdDate)),
+        content: initData.content.split('\n')
+      });
     }
-  }, [initData])
+  }, [initData]);
 
   return (
     <div className='Editor'>
@@ -89,8 +112,23 @@ const Editor = ({ initData, onSubmit, videoId = "" }) => {
       {/* 컨텐트 */}
       <section className='content_section'>
         <h4>오늘의 배움</h4>
-        <textarea name="content" value={input.content} onChange={onChangeInput} placeholder='오늘은 무엇을 배우셨나요?' />
+        <div className="content_list">
+          {[0, 1, 2].map((index) => (
+            <div key={index} className="content_list_wrapper">
+              <span className="content_list_number">{index + 1}.</span>
+              <input
+                type="text"
+                name={`point${index}`}
+                value={input.content[index]}
+                onChange={onChangeInput}
+                placeholder={`학습 포인트 ${index + 1}`}
+                maxLength={100}
+              />
+            </div>
+          ))}
+        </div>
       </section>
+
 
       <section className='button_section'>
         <Button text={"취소하기"} onClick={() => nav(-1)} />

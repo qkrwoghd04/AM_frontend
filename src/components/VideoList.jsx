@@ -8,7 +8,6 @@ import Selector from './Selector'
 import Button from './Button'
 import Header from './Header'
 // constant
-// import { Company_PlayList } from '../utils/constants';
 import { getStorageVideoIds } from '../utils/storage';
 import { Company_PlayList } from '../utils/constants';
 
