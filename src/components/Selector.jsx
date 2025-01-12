@@ -2,9 +2,10 @@ import './css/Selector.css'
 import { getLogoImage } from '../utils/getLogoImage'
 import { LogoList } from '../utils/constants'
 
-const Selector = ({ setQuery }) => {
+const Selector = ({ setQuery, setSearchKeyword }) => {
   const onSearchCompany = (query) => {
     setQuery(query);
+    setSearchKeyword("");
   }
 
   return (

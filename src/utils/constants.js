@@ -1,7 +1,7 @@
 export const LogoList = [
   { logoId: 1, logoName: "toss" },
   { logoId: 2, logoName: "woowa" },
-  { logoId: 3, logoName: "aWS" },
+  { logoId: 3, logoName: "aws" },
   { logoId: 4, logoName: "carrot" },
   { logoId: 5, logoName: "infcon" }
 ]

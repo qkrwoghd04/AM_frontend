@@ -16,11 +16,13 @@ const VideoList = () => {
   const [videoList, setVideoList] = useState([]);
   const [query, setQuery] = useState("");
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [searchKeyword, setSearchKeyword] = useState("");
   const [loading, setLoading] = useState(true);
   const nav = useNavigate();
 
   useEffect(() => {
     fetchAllVideos();
+    setQuery('toss')
   }, []);
 
   const fetchAllVideos = async () => {
@@ -40,7 +42,7 @@ const VideoList = () => {
           params: {
             part: 'snippet',
             playlistId: playlistId,
-            maxResults: 10,
+            maxResults: 25,
             fields: 'items(snippet/title,snippet/resourceId/videoId)'
           }
         });
@@ -68,18 +70,26 @@ const VideoList = () => {
     setSelectedVideo(videoId);
   };
 
-  // query에 따른 필터링
-  const filteredVideos = useMemo(() => {
+  // company에 따른 필터링
+  const filteredCompanyName = useMemo(() => {
     if (!query) return videoList;
     return videoList.filter(video =>
       video.company.toLowerCase() === query.toLowerCase()
     );
   }, [videoList, query]);
 
+  // 검색 결과 필터링 - 새로운 로직
+  const searchResults = useMemo(() => {
+    if (!searchKeyword) return filteredCompanyName;
+    return videoList.filter(video =>
+      video.title.toLowerCase().includes(searchKeyword.toLowerCase())
+    );
+  }, [videoList, searchKeyword]);
+
   return (
     <>
-      <SearchBar setQuery={setQuery} />
-      <Selector setQuery={setQuery} />
+      <SearchBar setSearchKeyword={setSearchKeyword} />
+      <Selector setQuery={setQuery} setSearchKeyword={setSearchKeyword} />
       {selectedVideo && (
         <div className="FullscreenVideo">
           <Header title={"영상 글쓰기"} color={"white"} leftChild={<Button text={"< 뒤로가기"} onClick={() => setSelectedVideo(null)} />} />
@@ -99,10 +109,15 @@ const VideoList = () => {
         </div>
       )}
       <div className='VideoTitle'>
-        <h4>LG CNS AM 캠프 과정을 위한 {query} 영상</h4>
+        {searchKeyword ? (
+          <h4>검색 결과: {searchKeyword}</h4>
+        ) : (
+          <h4>LG CNS AM 캠프 과정을 위한 {query} 영상</h4>
+        )}
       </div>
       <div className='Video'>
-        {filteredVideos.map((v) => (
+        {/* searchKeyword가 있으면 searchResults를, 없으면 filteredCompanyName을 사용 */}
+        {(searchKeyword ? searchResults : filteredCompanyName).map((v) => (
           <div
             key={v.id}
             className='VideoItem'

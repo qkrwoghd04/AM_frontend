@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './css/SearchBar.css'
 import Button from './Button';
-const SearchBar = ({ setQuery }) => {
+const SearchBar = ({ setSearchKeyword }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (e) => {
@@ -9,11 +9,17 @@ const SearchBar = ({ setQuery }) => {
   };
 
   const handleSearch = () => {
-    setQuery(inputValue);
+    setSearchKeyword(inputValue);
   };
+
   return (
     <div className='SearchBar'>
-      <input type="text" value={inputValue} onChange={handleInputChange} placeholder='ex) 파이썬' />
+      <input
+        type="text"
+        value={inputValue}
+        onChange={handleInputChange}
+        placeholder='ex) 파이썬'
+      />
       <Button onClick={handleSearch} text="검색" type="POSITIVE" />
     </div>
   )
