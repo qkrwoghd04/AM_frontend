@@ -4,7 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   plugins: [
-    react(), // 쉼표 추가
+    react(),
     VitePWA({
       registerType: 'autoUpdate',
       devOptions: { enabled: true },
@@ -22,7 +22,12 @@ export default defineConfig({
       manifest: {
         name: 'AmazeMemo',
         short_name: 'AmazeMemo',
+        description: "당신의 배움을 적어보세요",
         theme_color: '#ffffff',
+        display: 'standalone',
+        scope: '/',
+        start_url: '/',
+        orientation: 'portrait',
         icons: [
           {
             src: 'pwa-192x192.png',
