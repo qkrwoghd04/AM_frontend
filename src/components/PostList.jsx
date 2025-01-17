@@ -1,17 +1,14 @@
-import Button from "./Button";
-import { useNavigate } from 'react-router-dom'
 import PostItem from "./PostItem";
 import "./css/PostList.css";
 import { useState } from 'react'
+import MenuBar from "./MenuBar";
 
 
 const PostList = ({ data }) => {
-  const nav = useNavigate();
   const [sortType, setSortType] = useState('latest')
 
   const onChangeSortType = e => {
     setSortType(e.target.value)
-    console.log(e.target.value)
   }
 
   const getSortedDate = () => {
@@ -27,14 +24,7 @@ const PostList = ({ data }) => {
   const sortedDate = getSortedDate()
   return (
     <div className="PostList">
-      <div className="menu_bar">
-        <select onChange={onChangeSortType}>
-          <option value={"latest"}>최신순</option>
-          <option value={"oldest"}>오래된 순</option>
-        </select>
-        <Button text={"새 지식 쓰기"} type={"POSITIVE"} onClick={() => nav("/new")} />
-        <Button text={"영상 글쓰기"} type={"POSITIVE"} onClick={() => nav("/video")} />
-      </div>
+      <MenuBar onChange={onChangeSortType} />
       <div className="list_wrapper">
         {sortedDate.map((item) => {
           return (

@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react'
 import './css/Editor.css'
-import LogoItem from './LogoItem'
 import Button from './Button'
 import { useNavigate } from 'react-router-dom'
 import { LogoList } from '../utils/constants'
 import { getStringedDate } from '../utils/getStringedDate'
+import LogoSelector from './LogoSelector'
 
 const Editor = ({ initData, onSubmit, videoId = "" }) => {
   const [input, setInput] = useState({
     createdDate: new Date(),
     content: ["", "", ""],
     videoId: "",
+    logoName: ""
   });
 
   const nav = useNavigate();
@@ -55,6 +56,16 @@ const Editor = ({ initData, onSubmit, videoId = "" }) => {
     onSubmit(updatedInput);
   };
 
+  const handleLogoSelect = (company) => {
+    onChangeInput({
+      target: {
+        name: "logoName",
+        value: company
+      }
+    });
+  }
+
+
   useEffect(() => {
     if (initData) {
       setInput({
@@ -64,6 +75,8 @@ const Editor = ({ initData, onSubmit, videoId = "" }) => {
       });
     }
   }, [initData]);
+
+  console.log(input.logoName)
 
   return (
     <div className='Editor'>
@@ -75,21 +88,10 @@ const Editor = ({ initData, onSubmit, videoId = "" }) => {
       {/* 로고 섹션 */}
       <section className='logo_section'>
         <h4>주제</h4>
-        <div className='logo_list_wrapper'>
-          {LogoList.map((item, index) => {
-            return (
-              <LogoItem
-                key={index} {...item}
-                isSelected={item.logoId === input.logoId}
-                onClick={() => onChangeInput({
-                  target: {
-                    name: "logoId",
-                    value: item.logoId
-                  }
-                })} />
-            )
-          })}
-        </div>
+        <LogoSelector
+          selectedLogo={input.logoName}
+          onLogoSelect={handleLogoSelect}
+        />
       </section>
       {/* if videoId 비디오 섹션 */}
       {

@@ -2,7 +2,7 @@ import { useEffect, useState, useMemo } from 'react';
 import './css/VideoList.css';
 // 컴포넌트
 import SearchBar from './SearchBar';
-import Selector from './Selector'
+import LogoSelector from './LogoSelector'
 import VideoItem from './VideoItem'
 // constant
 import { getStorageVideoIds, storeVideoIds } from '../utils/storage';
@@ -36,7 +36,6 @@ const VideoList = () => {
       const results = await Promise.all(allVideoIdPromises);
       const allVideoId = results.flat();
 
-      console.log(allVideoId);
       storeVideoIds(allVideoId);
       setVideoList(allVideoId);
     } catch (error) {
@@ -66,10 +65,15 @@ const VideoList = () => {
     );
   }, [videoList, searchKeyword]);
 
+  const handleLogoSelect = (company) => {
+    setQuery(company);
+    setSearchKeyword("");
+  }
+
   return (
     <>
       <SearchBar setSearchKeyword={setSearchKeyword} />
-      <Selector setQuery={setQuery} setSearchKeyword={setSearchKeyword} />
+      <LogoSelector selectedLogo={query} onLogoSelect={handleLogoSelect} />
       {selectedVideo && (
         <VideoOverlay selectedVideo={selectedVideo} setSelectedVideo={setSelectedVideo} />
       )}

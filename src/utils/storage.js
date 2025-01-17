@@ -7,7 +7,6 @@ export const getStorageVideoIds = () => {
   if (!cached) return null;
 
   const { videoIds, timestamp } = JSON.parse(cached);
-  console.log(videoIds, timestamp);
   if (Date.now() - timestamp > CACHE_DURATION) {
     localStorage.removeItem(CACHE_KEY);
     return null;

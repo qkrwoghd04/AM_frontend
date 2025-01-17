@@ -3,6 +3,7 @@
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   
   /* 정사각형 모양 유지 */
   aspect-ratio: 1;
@@ -16,7 +17,7 @@
 }
 
 .LogoItem .logo_img {
-  width: 75%;
+  width: 80%;
   height: auto;
   object-fit: contain;
   margin-bottom: 8px;

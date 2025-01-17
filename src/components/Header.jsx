@@ -1,6 +1,5 @@
 import './css/Header.css';
 
-
 const Header = ({ title, leftChild, rightChild, color = "black" }) => {
   return (
     <header
