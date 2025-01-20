@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import './css/Editor.css'
 import Button from './Button'
 import { useNavigate } from 'react-router-dom'
-import { LogoList } from '../utils/constants'
 import { getStringedDate } from '../utils/getStringedDate'
 import LogoSelector from './LogoSelector'
+import ChatModal from './modals/ChatModal'
 
 const Editor = ({ initData, onSubmit, videoId = "" }) => {
   const [input, setInput] = useState({
@@ -13,6 +13,8 @@ const Editor = ({ initData, onSubmit, videoId = "" }) => {
     videoId: "",
     logoName: ""
   });
+
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   const nav = useNavigate();
 
@@ -76,7 +78,10 @@ const Editor = ({ initData, onSubmit, videoId = "" }) => {
     }
   }, [initData]);
 
-  console.log(input.logoName)
+  const modalHandler = () => {
+    setIsOpenModal(true);
+    console.log(isOpenModal)
+  }
 
   return (
     <div className='Editor'>
@@ -113,7 +118,10 @@ const Editor = ({ initData, onSubmit, videoId = "" }) => {
       }
       {/* 컨텐트 */}
       <section className='content_section'>
-        <h4>오늘의 배움</h4>
+        <div className='content_header'>
+          <h4>오늘의 배움</h4>
+          <Button text="질문하기" onClick={modalHandler} />
+        </div>
         <div className="content_list">
           {[0, 1, 2].map((index) => (
             <div key={index} className="content_list_wrapper">
@@ -136,6 +144,7 @@ const Editor = ({ initData, onSubmit, videoId = "" }) => {
         <Button text={"취소하기"} onClick={() => nav(-1)} />
         <Button text={"작성완료"} type={"POSITIVE"} onClick={onClickSubmitButton} />
       </section>
+      {isOpenModal && <ChatModal onClose={() => setIsOpenModal(false)} />}
     </div>
   )
 }

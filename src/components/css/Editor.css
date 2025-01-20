@@ -33,7 +33,13 @@
 
 .Editor .video_section {
   width: 100%;
-  max-height: 250px;
+}
+
+.Editor .content_section .content_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 
