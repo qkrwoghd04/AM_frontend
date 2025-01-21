@@ -1,7 +1,7 @@
 // ChatModal.jsx
 import { useState, useEffect, useRef } from 'react';
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import { Send, Loader2, ArrowLeft } from "lucide-react";
+import { generateContentFromGemini } from '../../utils/generateContentFromGemini';
 import '../css/ChatModal.css';
 
 const ChatModal = ({ onClose }) => {
@@ -9,8 +9,6 @@ const ChatModal = ({ onClose }) => {
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
-  const api_key = import.meta.env.VITE_GEMINI_API_KEY;
-  const genAI = new GoogleGenerativeAI(api_key);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -20,43 +18,11 @@ const ChatModal = ({ onClose }) => {
     scrollToBottom();
   }, [messages]);
 
-  const generateContent = async (prompt) => {
-    try {
-      setIsLoading(true);
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
-      // 프롬프트에 응답 길이 제한 추가
-      const enhancedPrompt = `${prompt} Explain in detail and make it easy to understand.`;
-
-      setMessages(prev => [...prev, { role: 'user', content: prompt }]);
-      setMessages(prev => [...prev, { role: 'ai', content: '' }]);
-
-      const result = await model.generateContent(enhancedPrompt);
-      const response = await result.response;
-      const text = response.text();
-
-      setMessages(prev => {
-        const newMessages = [...prev];
-        newMessages[newMessages.length - 1].content = text;
-        return newMessages;
-      });
-
-    } catch (error) {
-      console.error('Error:', error);
-      setMessages(prev => [...prev, {
-        role: 'error',
-        content: 'Sorry, something went wrong. Please try again.'
-      }]);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!inputText.trim() || isLoading) return;
 
-    generateContent(inputText);
+    generateContentFromGemini(inputText, setMessages, setIsLoading);
     setInputText('');
   };
 

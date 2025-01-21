@@ -6,7 +6,7 @@ export const allVideoIdPromises = Company_PlayList.map(async ({ company, playlis
     params: {
       part: 'snippet',
       playlistId: playlistId,
-      maxResults: 25,
+      maxResults: 50,
       fields: 'items(snippet/title,snippet/resourceId/videoId)'
     }
   });
