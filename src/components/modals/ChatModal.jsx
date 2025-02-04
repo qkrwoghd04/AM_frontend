@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Send, Loader2, ArrowLeft } from "lucide-react";
 import { generateContentFromGemini } from '../../utils/generateContentFromGemini';
 import '../css/ChatModal.css';
+import ReactMarkDown from 'react-markdown'
 
 const ChatModal = ({ onClose }) => {
   const [messages, setMessages] = useState([]);
@@ -40,9 +41,12 @@ const ChatModal = ({ onClose }) => {
         <div className="messages-area">
           {messages.map((message, index) => (
             <div key={index} className={`message ${message.role}`}>
-              <div className="message-content">
-                {message.content}
+              <div className="message-content">{
+                message.content.split("\n").map((line, i) => (
+                  <ReactMarkDown key={i}>{line.trim()}</ReactMarkDown>
+                ))}
               </div>
+
             </div>
           ))}
           <div ref={messagesEndRef} />
@@ -65,7 +69,7 @@ const ChatModal = ({ onClose }) => {
           </button>
         </form>
       </div>
-    </div>
+    </div >
   );
 };
 

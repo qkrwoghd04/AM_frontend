@@ -7,15 +7,12 @@ import LogoSelector from './LogoSelector'
 import ChatModal from './modals/ChatModal'
 
 const Editor = ({ initData, onSubmit, videoId = "" }) => {
+  const [isOpenModal, setIsOpenModal] = useState(false);
   const [input, setInput] = useState({
     createdDate: new Date(),
     content: ["", "", ""],
-    videoId: "",
-    logoName: ""
+    videoId: ""
   });
-
-  const [isOpenModal, setIsOpenModal] = useState(false);
-
   const nav = useNavigate();
 
   const onChangeInput = e => {
@@ -58,15 +55,14 @@ const Editor = ({ initData, onSubmit, videoId = "" }) => {
     onSubmit(updatedInput);
   };
 
-  const handleLogoSelect = (company) => {
+  const handleLogoSelect = (companyId) => {
     onChangeInput({
       target: {
-        name: "logoName",
-        value: company
+        name: "logoId",
+        value: companyId
       }
     });
   }
-
 
   useEffect(() => {
     if (initData) {
@@ -80,7 +76,6 @@ const Editor = ({ initData, onSubmit, videoId = "" }) => {
 
   const modalHandler = () => {
     setIsOpenModal(true);
-    console.log(isOpenModal)
   }
 
   return (
@@ -94,7 +89,7 @@ const Editor = ({ initData, onSubmit, videoId = "" }) => {
       <section className='logo_section'>
         <h4>주제</h4>
         <LogoSelector
-          selectedLogo={input.logoName}
+          selectedLogo={input.logoId}
           onLogoSelect={handleLogoSelect}
         />
       </section>

@@ -6,6 +6,7 @@ import LogoSelector from './LogoSelector'
 import VideoItem from './VideoItem'
 // constant
 import { getStorageVideoIds, storeVideoIds } from '../utils/storage';
+import { LogoList } from '../utils/constants'
 // util
 import { allVideoIdPromises } from '../utils/getAllVideoId';
 import VideoOverlay from './VideoOverlay';
@@ -52,6 +53,7 @@ const VideoList = () => {
   // company에 따른 필터링
   const filteredCompanyName = useMemo(() => {
     if (!query) return videoList;
+
     return videoList.filter(video =>
       video.company.toLowerCase() === query.toLowerCase()
     );
@@ -65,10 +67,13 @@ const VideoList = () => {
     );
   }, [videoList, searchKeyword]);
 
-  const handleLogoSelect = (company) => {
-    setQuery(company);
+  const handleLogoSelect = (id) => {
+    const companyName = LogoList.find(obj => obj.logoId === id).logoName;
+
+    setQuery(companyName);
     setSearchKeyword("");
   }
+
 
   return (
     <>

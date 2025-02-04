@@ -22,6 +22,7 @@ const PostList = ({ data }) => {
   }
 
   const sortedDate = getSortedDate()
+  console.log(sortedDate)
   return (
     <div className="PostList">
       <MenuBar onChange={onChangeSortType} />

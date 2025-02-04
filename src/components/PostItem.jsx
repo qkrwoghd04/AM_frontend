@@ -2,8 +2,7 @@ import { getLogoImage } from "../utils/getLogoImage";
 import { useNavigate } from "react-router-dom";
 import "./css/PostItem.css";
 
-const DiaryItem = ({ id, createdDate, logoId, content }) => {
-
+const PostItem = ({ id, createdDate, logoId = -1, content }) => {
   const nav = useNavigate();
   return (
     <div className="PostItem">
@@ -27,4 +26,4 @@ const DiaryItem = ({ id, createdDate, logoId, content }) => {
   )
 }
 
-export default DiaryItem;
+export default PostItem;

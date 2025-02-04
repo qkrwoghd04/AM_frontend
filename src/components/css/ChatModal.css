@@ -82,8 +82,14 @@
 .message-content {
   padding: 12px 16px;
   border-radius: 12px;
-  line-height: 1.5;
+  line-height: 2;
+  max-width: 100%; /* 메시지가 컨테이너를 넘지 않도록 제한 */
 }
+
+.message-content pre code {
+
+}
+
 
 .user .message-content {
   background: #2563eb;
